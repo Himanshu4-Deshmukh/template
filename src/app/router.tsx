@@ -6,6 +6,7 @@ import { AboutPage } from '@/pages/about-page'
 import { ServicesPage } from '@/pages/services-page'
 import { ContactPage } from '@/pages/contact-page'
 import { LegalPage } from '@/pages/legal-page'
+import { PrivacyPage } from '@/pages/privacy-page'
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
       { path: 'services', element: <ServicesPage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: 'mentions-legales', element: <LegalPage /> },
+      { path: 'politique-de-confidentialite', element: <PrivacyPage /> },
     ],
   },
 ])

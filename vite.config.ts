@@ -13,7 +13,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     seoPrerender({
-      routes: ['/', '/a-propos', '/services', '/contact', '/mentions-legales'],
+      routes: ['/', '/a-propos', '/services', '/contact', '/mentions-legales', '/politique-de-confidentialite'],
       removeStyle: false,
     }),
   ],

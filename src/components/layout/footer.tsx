@@ -19,7 +19,7 @@ const navCols = [
     title: 'Légal',
     links: [
       { label: 'Mentions légales', to: '/mentions-legales' },
-      { label: 'Politique de confidentialité', to: '/mentions-legales' },
+      { label: 'Politique de confidentialité', to: '/politique-de-confidentialite' },
     ],
   },
 ] as const
@@ -81,12 +81,20 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} {siteConfig.name}. Tous droits réservés.
           </p>
-          <Link
-            to="/mentions-legales"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            Mentions légales
-          </Link>
+          <div className="flex gap-4">
+            <Link
+              to="/mentions-legales"
+              className="text-sm text-muted-foreground hover:text-foreground"
+            >
+              Mentions légales
+            </Link>
+            <Link
+              to="/politique-de-confidentialite"
+              className="text-sm text-muted-foreground hover:text-foreground"
+            >
+              Confidentialité
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

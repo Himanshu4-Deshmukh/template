@@ -38,4 +38,5 @@ export const routes = [
   '/services',
   '/contact',
   '/mentions-legales',
+  '/politique-de-confidentialite',
 ] as const

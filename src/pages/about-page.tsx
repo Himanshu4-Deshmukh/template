@@ -4,6 +4,7 @@ import { Heart, Lightbulb, Users } from 'lucide-react'
 import { SeoHead } from '@/components/seo/seo-head'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 import { CtaSection } from '@/components/sections/cta-section'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { SectionTitle } from '@/components/ui/section-title'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -50,6 +51,8 @@ export function AboutPage() {
         canonical="/a-propos"
         jsonLd={jsonLd}
       />
+
+      <Breadcrumb items={[{ label: 'À propos' }]} />
 
       <section className="border-b border-border/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
@@ -105,6 +108,52 @@ export function AboutPage() {
                     </p>
                   </CardContent>
                 </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Galerie photos */}
+      <section className="border-b border-border/60">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <SectionTitle
+            eyebrow="En images"
+            title="Notre quotidien"
+          />
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+            {[
+              {
+                src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+                alt: 'Équipe en brainstorming',
+              },
+              {
+                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+                alt: 'Espace de travail lumineux',
+              },
+              {
+                src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80',
+                alt: 'Stratégie et planification',
+              },
+              {
+                src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80',
+                alt: 'Collaboration au quotidien',
+              },
+            ].map((img, i) => (
+              <motion.div
+                key={img.alt}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.45, ease, delay: i * 0.06 }}
+                className="overflow-hidden rounded-2xl"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
               </motion.div>
             ))}
           </div>

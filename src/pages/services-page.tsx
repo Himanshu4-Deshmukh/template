@@ -17,6 +17,7 @@ import {
   webPageJsonLd,
 } from '@/components/seo/json-ld'
 import { CtaSection } from '@/components/sections/cta-section'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { SectionTitle } from '@/components/ui/section-title'
 import {
   Card,
@@ -94,6 +95,8 @@ export function ServicesPage() {
         canonical="/services"
         jsonLd={jsonLd}
       />
+
+      <Breadcrumb items={[{ label: 'Services' }]} />
 
       <section className="border-b border-border/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">

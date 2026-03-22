@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 
 import { SeoHead } from '@/components/seo/seo-head'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
+import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -34,6 +35,8 @@ export function ContactPage() {
         canonical="/contact"
         jsonLd={jsonLd}
       />
+
+      <Breadcrumb items={[{ label: 'Contact' }]} />
 
       <section className="border-b border-border/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">

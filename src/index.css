@@ -163,6 +163,22 @@
   .font-display {
     font-family: var(--font-display);
   }
+
+  .animate-marquee-left {
+    animation: marquee-left 45s linear infinite;
+  }
+  .animate-marquee-right {
+    animation: marquee-right 45s linear infinite;
+  }
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
 @layer base {
