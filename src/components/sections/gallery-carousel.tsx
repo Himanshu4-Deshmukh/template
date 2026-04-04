@@ -103,11 +103,32 @@ export function GalleryCarousel() {
         fontFamily: '"DM Sans", system-ui, sans-serif',
       }}
     >
+      <style>{`
+        @media (max-width: 767px) {
+          .gallery-carousel-grid {
+            grid-template-columns: 1fr !important;
+          }
+
+          .gallery-carousel-card {
+            padding: 1.35rem !important;
+          }
+
+          .gallery-carousel-card-top {
+            gap: 0.75rem;
+            flex-wrap: wrap;
+          }
+
+          .gallery-carousel-cta {
+            width: 100%;
+            justify-content: center !important;
+          }
+        }
+      `}</style>
       <div
         style={{
           maxWidth: '90rem',
           margin: '0 auto',
-          padding: 'clamp(4rem, 8vw, 7rem) 2.5rem',
+          padding: 'clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2.5rem)',
         }}
       >
         {/* ── Header ── */}
@@ -215,9 +236,10 @@ export function GalleryCarousel() {
 
         {/* ── Capability cards grid ── */}
         <div
+          className="gallery-carousel-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(420px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
             gap: '1.25rem',
           }}
         >
@@ -228,6 +250,7 @@ export function GalleryCarousel() {
             return (
               <motion.div
                 key={i}
+                className="gallery-carousel-card"
                 initial={{ opacity: 0, y: 28 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
@@ -252,6 +275,7 @@ export function GalleryCarousel() {
               >
                 {/* Icon + tag */}
                 <div
+                  className="gallery-carousel-card-top"
                   style={{
                     display: 'flex',
                     alignItems: 'flex-start',
@@ -408,6 +432,7 @@ export function GalleryCarousel() {
           </div>
           <button
             type="button"
+            className="gallery-carousel-cta"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

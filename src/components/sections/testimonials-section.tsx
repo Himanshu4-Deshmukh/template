@@ -54,6 +54,23 @@ const STYLES = `
     transform: translateY(-5px);
     box-shadow: 0 12px 40px rgba(0,0,0,0.10), 0 3px 10px rgba(0,0,0,0.05) !important;
   }
+  @media (max-width: 767px) {
+    .testimonial-card {
+      width: min(82vw, 312px) !important;
+      min-height: 205px !important;
+    }
+    .testimonial-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+    }
+    .testimonial-metric-card {
+      padding: 24px 18px 22px !important;
+      border-radius: 16px !important;
+    }
+    .testimonial-section-header {
+      padding-top: 3.5rem !important;
+    }
+  }
 `
 
 function TestimonialCard({
@@ -65,7 +82,7 @@ function TestimonialCard({
 
   return (
     <figure
-      className="ts-card"
+      className="ts-card testimonial-card"
       style={{
         width: 312,
         flexShrink: 0,
@@ -215,7 +232,7 @@ export function TestimonialsSection() {
       }} />
 
       {/* ── Header ── */}
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 1200, margin: '0 auto', padding: '4.5rem 1.5rem 0' }}>
+      <div className="testimonial-section-header" style={{ position: 'relative', zIndex: 1, maxWidth: 1200, margin: '0 auto', padding: '4.5rem 1.5rem 0' }}>
 
         {/* Eyebrow — EB Garamond spaced caps */}
         <div style={{
@@ -259,7 +276,7 @@ export function TestimonialsSection() {
         </p>
 
         {/* ── Metric cards ── */}
-        <div style={{
+        <div className="testimonial-metrics" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: 20,
@@ -268,7 +285,7 @@ export function TestimonialsSection() {
           {metrics.map(({ icon: Icon, value, label, accent }) => (
             <div
               key={label}
-              className="metric-card"
+              className="metric-card testimonial-metric-card"
               style={{
                 background: '#FFFFFF',
                 border: '1px solid #E2E8F0',
