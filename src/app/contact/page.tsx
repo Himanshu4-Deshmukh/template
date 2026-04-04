@@ -4,7 +4,7 @@ import { ContactContent } from './contact-content'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 
 const description =
-  'Contactez-nous pour discuter de votre projet. Devis gratuit, réponse rapide.'
+  'Contact NP Tech Solutions to discuss software, automation, cloud, or digital transformation needs.'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -17,7 +17,7 @@ const jsonLd = {
   '@graph': [
     webPageJsonLd('Contact', description, '/contact'),
     breadcrumbJsonLd([
-      { name: 'Accueil', path: '/' },
+      { name: 'Home', path: '/' },
       { name: 'Contact', path: '/contact' },
     ]),
   ],

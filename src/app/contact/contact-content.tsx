@@ -1,178 +1,448 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone, Send } from 'lucide-react'
 
 import { PageHero } from '@/components/sections/page-hero'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { siteConfig } from '@/lib/seo'
 
 const ease = [0.22, 1, 0.36, 1] as const
+
+// ── shared input style ────────────────────────────────────────────────────────
+const inputStyle: React.CSSProperties = {
+  width: '100%',
+  height: 44,
+  padding: '0 14px',
+  fontSize: '0.925rem',
+  color: '#0F172A',
+  background: '#F8FAFC',
+  border: '1.5px solid #E2E8F0',
+  borderRadius: 12,
+  outline: 'none',
+  transition: 'border-color 0.18s ease, box-shadow 0.18s ease',
+  boxSizing: 'border-box' as const,
+}
+
+const labelStyle: React.CSSProperties = {
+  display: 'block',
+  fontSize: '0.82rem',
+  fontWeight: 600,
+  color: '#374151',
+  marginBottom: 6,
+  letterSpacing: '0.01em',
+}
+
+function Field({
+  id,
+  label,
+  children,
+}: {
+  id: string
+  label: string
+  children: React.ReactNode
+}) {
+  return (
+    <div>
+      <label htmlFor={id} style={labelStyle}>
+        {label}
+      </label>
+      {children}
+    </div>
+  )
+}
+
+function FocusInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <input
+      {...props}
+      style={inputStyle}
+      onFocus={(e) => {
+        e.currentTarget.style.borderColor = '#3B6FE8'
+        e.currentTarget.style.boxShadow = '0 0 0 3px rgba(59,111,232,0.12)'
+        e.currentTarget.style.background = '#FFFFFF'
+      }}
+      onBlur={(e) => {
+        e.currentTarget.style.borderColor = '#E2E8F0'
+        e.currentTarget.style.boxShadow = 'none'
+        e.currentTarget.style.background = '#F8FAFC'
+      }}
+    />
+  )
+}
 
 export function ContactContent() {
   return (
     <>
       <PageHero
         eyebrow="Contact"
-        title="Parlons de votre projet"
-        description="Remplissez le formulaire ci-dessous ou contactez-nous directement. Nous répondons sous 24h."
+        title="Talk with our technology team"
+        description="Tell us what you need to build, improve, automate, or scale. We'll get back to you within 24 hours."
         image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80"
         breadcrumb="Contact"
       />
 
-      <section className="border-b border-border/60">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <section
+        style={{
+          borderBottom: '1px solid #E2E8F0',
+          background: '#F8FAFC',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* decorative blobs */}
+        <div aria-hidden style={{
+          position: 'absolute', top: '-100px', right: '-80px',
+          width: 380, height: 380, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(59,111,232,0.08) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+        <div aria-hidden style={{
+          position: 'absolute', bottom: '-80px', left: '-60px',
+          width: 300, height: 300, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+
+        <div
+          style={{
+            position: 'relative',
+            maxWidth: '72rem',
+            margin: '0 auto',
+            padding: '80px 24px',
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gap: 28,
+              gridTemplateColumns: '1.25fr 0.75fr',
+            }}
+            className="lg:grid-cols-[1.25fr_0.75fr] grid-cols-1"
+          >
+            {/* ── Contact form ── */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease }}
             >
-              <Card className="rounded-2xl border-border/80 bg-card/70 shadow-[var(--shadow-md)] ring-1 ring-foreground/5">
-                <CardHeader>
-                  <CardTitle className="font-display text-lg">
-                    Envoyer un message
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form
-                    className="space-y-5"
-                    onSubmit={(e) => e.preventDefault()}
+              <div
+                style={{
+                  background: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  borderRadius: 20,
+                  padding: '36px 32px 40px',
+                  boxShadow:
+                    '0 2px 8px rgba(0,0,0,0.05), 0 8px 32px rgba(0,0,0,0.04)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                {/* card top accent line */}
+                <div style={{
+                  position: 'absolute', top: 0, left: '10%', right: '10%',
+                  height: 2,
+                  background: 'linear-gradient(90deg, transparent, #3B6FE8 40%, #8B5CF6 60%, transparent)',
+                  borderRadius: '0 0 999px 999px',
+                }} />
+
+                <h2
+                  style={{
+                    fontFamily: '"Playfair Display", Georgia, serif',
+                    fontSize: '1.35rem',
+                    fontWeight: 700,
+                    color: '#0F172A',
+                    margin: '0 0 28px',
+                  }}
+                >
+                  Start the conversation
+                </h2>
+
+                <form
+                  onSubmit={(e) => e.preventDefault()}
+                  style={{ display: 'flex', flexDirection: 'column', gap: 18 }}
+                >
+                  {/* Name row */}
+                  <div style={{ display: 'grid', gap: 16, gridTemplateColumns: '1fr 1fr' }}>
+                    <Field id="firstname" label="First name">
+                      <FocusInput id="firstname" name="firstname" placeholder="John" autoComplete="given-name" />
+                    </Field>
+                    <Field id="lastname" label="Last name">
+                      <FocusInput id="lastname" name="lastname" placeholder="Smith" autoComplete="family-name" />
+                    </Field>
+                  </div>
+
+                  <Field id="email" label="Email">
+                    <FocusInput id="email" name="email" type="email" placeholder="john@company.com" autoComplete="email" />
+                  </Field>
+
+                  <Field id="phone" label="Phone (optional)">
+                    <FocusInput id="phone" name="phone" type="tel" placeholder="+1 555 000 0000" autoComplete="tel" />
+                  </Field>
+
+                  <Field id="message" label="Your message">
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      placeholder="Tell us about your systems, goals, or technical challenges..."
+                      style={{
+                        ...inputStyle,
+                        height: 'auto',
+                        padding: '12px 14px',
+                        resize: 'vertical',
+                        lineHeight: 1.65,
+                        fontFamily: 'inherit',
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = '#3B6FE8'
+                        e.currentTarget.style.boxShadow = '0 0 0 3px rgba(59,111,232,0.12)'
+                        e.currentTarget.style.background = '#FFFFFF'
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = '#E2E8F0'
+                        e.currentTarget.style.boxShadow = 'none'
+                        e.currentTarget.style.background = '#F8FAFC'
+                      }}
+                    />
+                  </Field>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 10,
+                      width: '100%',
+                      padding: '13px 24px',
+                      fontSize: '1rem',
+                      fontWeight: 600,
+                      color: '#FFFFFF',
+                      background: 'linear-gradient(135deg, #3B6FE8 0%, #2554C7 100%)',
+                      border: 'none',
+                      borderRadius: 999,
+                      cursor: 'pointer',
+                      boxShadow:
+                        '0 2px 14px rgba(59,111,232,0.35), 0 1px 3px rgba(59,111,232,0.2)',
+                      transition: 'all 0.2s ease',
+                      marginTop: 4,
+                    }}
+                    onMouseEnter={(e) => {
+                      const el = e.currentTarget
+                      el.style.background = 'linear-gradient(135deg, #4A7CF0 0%, #2F5FD4 100%)'
+                      el.style.boxShadow = '0 6px 24px rgba(59,111,232,0.42)'
+                      el.style.transform = 'translateY(-2px)'
+                    }}
+                    onMouseLeave={(e) => {
+                      const el = e.currentTarget
+                      el.style.background = 'linear-gradient(135deg, #3B6FE8 0%, #2554C7 100%)'
+                      el.style.boxShadow = '0 2px 14px rgba(59,111,232,0.35), 0 1px 3px rgba(59,111,232,0.2)'
+                      el.style.transform = 'translateY(0)'
+                    }}
                   >
-                    <div className="grid gap-5 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstname">Prénom</Label>
-                        <Input
-                          id="firstname"
-                          name="firstname"
-                          placeholder="Jean"
-                          autoComplete="given-name"
-                          className="h-11 rounded-xl"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastname">Nom</Label>
-                        <Input
-                          id="lastname"
-                          name="lastname"
-                          placeholder="Dupont"
-                          autoComplete="family-name"
-                          className="h-11 rounded-xl"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="jean@entreprise.fr"
-                        autoComplete="email"
-                        className="h-11 rounded-xl"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Téléphone (optionnel)</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="06 12 34 56 78"
-                        autoComplete="tel"
-                        className="h-11 rounded-xl"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Votre message</Label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={5}
-                        placeholder="Décrivez votre projet en quelques mots..."
-                        className="w-full rounded-xl border border-input bg-transparent px-3 py-2.5 text-sm leading-relaxed text-foreground transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-                      />
-                    </div>
-                    <Button type="submit" size="lg" className="w-full">
-                      Envoyer le message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+                    <Send size={17} />
+                    Send inquiry
+                  </button>
+                </form>
+              </div>
             </motion.div>
 
+            {/* ── Sidebar ── */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, ease, delay: 0.06 }}
-              className="space-y-5"
+              transition={{ duration: 0.5, ease, delay: 0.08 }}
+              style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
             >
-              <Card className="rounded-2xl border-border/80 bg-card/70 shadow-[var(--shadow-sm)] ring-1 ring-foreground/5">
-                <CardContent className="space-y-6 pt-6">
-                  <div className="flex items-start gap-4">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
-                      <Phone className="size-4" aria-hidden />
-                    </span>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">
-                        Téléphone
-                      </p>
-                      <a
-                        href={`tel:${siteConfig.phone}`}
-                        className="text-sm text-muted-foreground hover:text-foreground"
-                      >
-                        {siteConfig.phone}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
-                      <Mail className="size-4" aria-hidden />
-                    </span>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">
-                        Email
-                      </p>
-                      <a
-                        href={`mailto:${siteConfig.email}`}
-                        className="text-sm text-muted-foreground hover:text-foreground"
-                      >
-                        {siteConfig.email}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
-                      <MapPin className="size-4" aria-hidden />
-                    </span>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">
-                        Adresse
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {siteConfig.address.street}
-                        <br />
-                        {siteConfig.address.postalCode}{' '}
-                        {siteConfig.address.city}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Contact details card */}
+              <div
+                style={{
+                  background: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  borderRadius: 20,
+                  padding: '28px 24px',
+                  boxShadow:
+                    '0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.04)',
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: '"Playfair Display", Georgia, serif',
+                    fontSize: '1.05rem',
+                    fontWeight: 700,
+                    color: '#0F172A',
+                    margin: '0 0 22px',
+                  }}
+                >
+                  Get in touch
+                </h3>
 
-              <div className="overflow-hidden rounded-2xl border border-border/80 bg-muted/30 shadow-[var(--shadow-sm)] ring-1 ring-foreground/5">
-                <div className="flex h-56 items-center justify-center text-sm text-muted-foreground">
-                  <p>
-                    Intégrez ici votre carte Google Maps
-                    <br />
-                    <span className="text-xs">(iframe ou API)</span>
-                  </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                  {[
+                    {
+                      icon: Phone,
+                      accent: '#3B82F6',
+                      label: 'Phone',
+                      content: (
+                        <a
+                          href={`tel:${siteConfig.phone}`}
+                          style={{ fontSize: '0.875rem', color: '#64748B', textDecoration: 'none' }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = '#3B6FE8')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = '#64748B')}
+                        >
+                          {siteConfig.phone}
+                        </a>
+                      ),
+                    },
+                    {
+                      icon: Mail,
+                      accent: '#14B8A6',
+                      label: 'Email',
+                      content: (
+                        <a
+                          href={`mailto:${siteConfig.email}`}
+                          style={{ fontSize: '0.875rem', color: '#64748B', textDecoration: 'none' }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = '#3B6FE8')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = '#64748B')}
+                        >
+                          {siteConfig.email}
+                        </a>
+                      ),
+                    },
+                    {
+                      icon: MapPin,
+                      accent: '#8B5CF6',
+                      label: 'Address',
+                      content: (
+                        <p style={{ fontSize: '0.875rem', color: '#64748B', margin: 0, lineHeight: 1.6 }}>
+                          {siteConfig.address.street}
+                          <br />
+                          {siteConfig.address.postalCode} {siteConfig.address.city}
+                        </p>
+                      ),
+                    },
+                  ].map(({ icon: Icon, accent, label, content }) => (
+                    <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
+                      <div
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: 40,
+                          height: 40,
+                          borderRadius: 12,
+                          background: `${accent}18`,
+                          border: `1px solid ${accent}30`,
+                          flexShrink: 0,
+                        }}
+                      >
+                        <Icon size={17} style={{ color: accent }} aria-hidden />
+                      </div>
+                      <div>
+                        <p style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0F172A', margin: '0 0 3px' }}>
+                          {label}
+                        </p>
+                        {content}
+                      </div>
+                    </div>
+                  ))}
                 </div>
+              </div>
+
+              {/* Map placeholder */}
+              <div
+                style={{
+                  background: '#FFFFFF',
+                  border: '1px solid #E2E8F0',
+                  borderRadius: 20,
+                  overflow: 'hidden',
+                  boxShadow:
+                    '0 1px 4px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.04)',
+                  flexGrow: 1,
+                  minHeight: 200,
+                  display: 'flex',
+                  flexDirection: 'column',
+                }}
+              >
+                {/* map header strip */}
+                <div
+                  style={{
+                    padding: '14px 20px',
+                    borderBottom: '1px solid #E2E8F0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                  }}
+                >
+                  <MapPin size={14} style={{ color: '#3B6FE8' }} />
+                  <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#374151' }}>
+                    Our location
+                  </span>
+                </div>
+                <div
+                  style={{
+                    flexGrow: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'linear-gradient(135deg, #F0F4FF 0%, #F8FAFC 100%)',
+                    padding: 24,
+                    textAlign: 'center',
+                  }}
+                >
+                  <div>
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: '50%',
+                        background: '#EEF3FD',
+                        border: '1px solid #C7D8FA',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        margin: '0 auto 12px',
+                      }}
+                    >
+                      <MapPin size={20} style={{ color: '#3B6FE8' }} />
+                    </div>
+                    <p style={{ fontSize: '0.8rem', color: '#94A3B8', margin: 0 }}>
+                      Add your office map here
+                      <br />
+                      <span style={{ fontSize: '0.72rem' }}>(iframe or map API)</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Response time badge */}
+              <div
+                style={{
+                  background: 'linear-gradient(135deg, #EEF3FD 0%, #E8EFFE 100%)',
+                  border: '1px solid #C7D8FA',
+                  borderRadius: 16,
+                  padding: '16px 20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                }}
+              >
+                <div
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: '#22C55E',
+                    boxShadow: '0 0 0 3px rgba(34,197,94,0.2)',
+                    flexShrink: 0,
+                  }}
+                />
+                <p style={{ fontSize: '0.82rem', color: '#3B6FE8', fontWeight: 600, margin: 0 }}>
+                  We typically respond within 1 business day
+                </p>
               </div>
             </motion.div>
           </div>

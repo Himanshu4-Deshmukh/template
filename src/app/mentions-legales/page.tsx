@@ -6,10 +6,10 @@ import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { siteConfig } from '@/lib/seo'
 
 const description =
-  "Mentions légales du site — informations sur l'éditeur, l'hébergement, la propriété intellectuelle et les conditions d'utilisation."
+  'Legal notice for the website - information about the publisher, hosting, intellectual property, and conditions of use.'
 
 export const metadata: Metadata = {
-  title: 'Mentions légales',
+  title: 'Legal notice',
   description,
   alternates: { canonical: '/mentions-legales' },
   robots: { index: false, follow: false },
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    webPageJsonLd('Mentions légales', description, '/mentions-legales'),
+    webPageJsonLd('Legal notice', description, '/mentions-legales'),
     breadcrumbJsonLd([
-      { name: 'Accueil', path: '/' },
-      { name: 'Mentions légales', path: '/mentions-legales' },
+      { name: 'Home', path: '/' },
+      { name: 'Legal notice', path: '/mentions-legales' },
     ]),
   ],
 }
@@ -34,134 +34,126 @@ export default function LegalPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Breadcrumb items={[{ label: 'Mentions légales' }]} />
+      <Breadcrumb items={[{ label: 'Legal notice' }]} />
 
       <section className="border-b border-border/60">
         <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <h1 className="font-display text-3xl tracking-tight text-foreground sm:text-4xl">
-            Mentions légales
+            Legal notice
           </h1>
           <p className="mt-4 text-sm text-muted-foreground">
-            Dernière mise à jour : [JJ/MM/AAAA]
+            Last updated: [DD/MM/YYYY]
           </p>
 
           <article className="mt-10 space-y-10 text-sm leading-relaxed text-muted-foreground [&_h2]:font-display [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:text-foreground [&_h3]:text-sm [&_h3]:font-semibold [&_h3]:text-foreground">
-
             <section className="space-y-3">
-              <h2>1. Éditeur du site</h2>
+              <h2>1. Website publisher</h2>
               <p>
-                Le site <strong>{siteConfig.url}</strong> est édité par :
+                The website <strong>{siteConfig.url}</strong> is published by:
               </p>
               <ul className="list-inside list-disc space-y-1 pl-1">
-                <li>Raison sociale : {siteConfig.name}</li>
-                <li>Forme juridique : [SARL / SAS / Auto-entrepreneur / …]</li>
-                <li>Capital social : [À compléter] €</li>
-                <li>SIRET : [À compléter]</li>
-                <li>RCS : [Ville] [N°]</li>
-                <li>TVA intracommunautaire : [À compléter]</li>
+                <li>Company name: {siteConfig.name}</li>
+                <li>Legal form: [LLC / Corporation / Sole proprietorship / etc.]</li>
+                <li>Share capital: [To be completed] EUR</li>
+                <li>Business registration number: [To be completed]</li>
+                <li>Trade register: [City] [Number]</li>
+                <li>VAT number: [To be completed]</li>
                 <li>
-                  Siège social : {siteConfig.address.street},{' '}
+                  Registered office: {siteConfig.address.street},{' '}
                   {siteConfig.address.postalCode} {siteConfig.address.city}
                 </li>
-                <li>Téléphone : {siteConfig.phone}</li>
-                <li>Email : {siteConfig.email}</li>
+                <li>Phone: {siteConfig.phone}</li>
+                <li>Email: {siteConfig.email}</li>
               </ul>
-              <p>
-                Directeur de la publication : [Nom et prénom du responsable]
-              </p>
+              <p>Publishing director: [Name of responsible person]</p>
             </section>
 
             <section className="space-y-3">
-              <h2>2. Hébergement</h2>
-              <p>Le site est hébergé par :</p>
+              <h2>2. Hosting</h2>
+              <p>The website is hosted by:</p>
               <ul className="list-inside list-disc space-y-1 pl-1">
-                <li>Raison sociale : [Nom de l&apos;hébergeur — ex: Netlify, OVH, Vercel]</li>
-                <li>Adresse : [Adresse de l&apos;hébergeur]</li>
-                <li>Téléphone : [Téléphone de l&apos;hébergeur]</li>
-                <li>Site web : [URL de l&apos;hébergeur]</li>
+                <li>Company name: [Hosting provider name - e.g. Netlify, OVH, Vercel]</li>
+                <li>Address: [Hosting provider address]</li>
+                <li>Phone: [Hosting provider phone]</li>
+                <li>Website: [Hosting provider URL]</li>
               </ul>
             </section>
 
             <section className="space-y-3">
-              <h2>3. Propriété intellectuelle</h2>
+              <h2>3. Intellectual property</h2>
               <p>
-                L&apos;ensemble des contenus présents sur le site (textes,
-                photographies, illustrations, logos, icônes, éléments
-                graphiques, vidéos, bases de données, code source) est protégé
-                par les lois françaises et internationales relatives à la
-                propriété intellectuelle.
+                All content available on the website (texts, photographs,
+                illustrations, logos, icons, graphic elements, videos,
+                databases, source code) is protected by French and
+                international intellectual property laws.
               </p>
               <p>
-                Toute reproduction, représentation, modification, publication,
-                adaptation, totale ou partielle, de ces éléments, quel que soit
-                le moyen ou le procédé utilisé, est interdite sauf autorisation
-                écrite préalable de {siteConfig.name}.
+                Any reproduction, representation, modification, publication, or
+                adaptation of these elements, in whole or in part, by any means
+                whatsoever, is prohibited without prior written authorization
+                from {siteConfig.name}.
               </p>
               <p>
-                Toute exploitation non autorisée du site ou de son contenu sera
-                considérée comme constitutive d&apos;une contrefaçon et poursuivie
-                conformément aux articles L.335-2 et suivants du Code de la
-                propriété intellectuelle.
+                Any unauthorized use of the website or its content will be
+                considered infringement and may be prosecuted under applicable
+                intellectual property laws.
               </p>
             </section>
 
             <section className="space-y-3">
-              <h2>4. Limitation de responsabilité</h2>
+              <h2>4. Limitation of liability</h2>
               <p>
-                {siteConfig.name} s&apos;efforce de fournir des informations aussi
-                précises que possible sur le site. Toutefois, il ne pourra être
-                tenu responsable des omissions, des inexactitudes ou des
-                carences dans la mise à jour, qu&apos;elles soient de son fait ou du
-                fait des tiers partenaires qui lui fournissent ces informations.
+                {siteConfig.name} strives to provide information on the website
+                that is as accurate as possible. However, it cannot be held
+                liable for omissions, inaccuracies, or failures to update,
+                whether caused by itself or by third-party partners supplying
+                such information.
               </p>
               <p>
-                {siteConfig.name} ne pourra être tenu responsable des dommages
-                directs et indirects causés au matériel de l&apos;utilisateur lors de
-                l&apos;accès au site, résultant soit de l&apos;utilisation d&apos;un matériel
-                ne répondant pas aux spécifications techniques requises, soit de
-                l&apos;apparition d&apos;un bug ou d&apos;une incompatibilité.
-              </p>
-            </section>
-
-            <section className="space-y-3">
-              <h2>5. Liens hypertextes</h2>
-              <p>
-                Le site peut contenir des liens hypertextes vers d&apos;autres sites.
-                Cependant, {siteConfig.name} n&apos;a pas la possibilité de vérifier
-                le contenu des sites ainsi visités et n&apos;assumera en conséquence
-                aucune responsabilité de ce fait.
-              </p>
-              <p>
-                La mise en place de liens hypertextes vers le site nécessite une
-                autorisation préalable et écrite de {siteConfig.name}.
+                {siteConfig.name} cannot be held liable for direct or indirect
+                damage caused to a user&apos;s equipment when accessing the website,
+                whether resulting from hardware that does not meet required
+                technical specifications or from bugs or incompatibilities.
               </p>
             </section>
 
             <section className="space-y-3">
-              <h2>6. Droit applicable et juridiction compétente</h2>
+              <h2>5. Hyperlinks</h2>
               <p>
-                Les présentes mentions légales sont régies par le droit
-                français. En cas de litige, et après l&apos;échec de toute tentative
-                de recherche d&apos;une solution amiable, les tribunaux français
-                seront seuls compétents pour connaître de ce litige.
+                The website may contain hyperlinks to other websites. However,
+                {siteConfig.name} is not able to verify the content of those
+                external websites and therefore accepts no liability for them.
+              </p>
+              <p>
+                Creating hyperlinks to this website requires prior written
+                authorization from {siteConfig.name}.
               </p>
             </section>
 
             <section className="space-y-3">
-              <h2>7. Crédits</h2>
-              <p>Conception et développement : [À compléter]</p>
-              <p>Crédits photos : [À compléter]</p>
+              <h2>6. Governing law and jurisdiction</h2>
+              <p>
+                These legal notices are governed by French law. In the event of
+                a dispute, and after any attempt to reach an amicable solution
+                has failed, French courts shall have exclusive jurisdiction.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2>7. Credits</h2>
+              <p>Design and development: [To be completed]</p>
+              <p>Photo credits: [To be completed]</p>
             </section>
 
             <section className="space-y-3 rounded-xl border border-border/60 bg-muted/20 p-5">
               <p className="text-foreground">
-                Pour connaître nos pratiques en matière de collecte et de
-                traitement des données personnelles, consultez notre{' '}
+                To learn more about how we collect and process personal data,
+                please see our{' '}
                 <Link
                   href="/politique-de-confidentialite"
                   className="font-medium text-primary underline underline-offset-4 hover:text-primary/80"
                 >
-                  Politique de confidentialité
+                  Privacy policy
                 </Link>
                 .
               </p>

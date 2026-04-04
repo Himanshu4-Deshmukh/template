@@ -3,8 +3,7 @@
 import { X } from 'lucide-react'
 import { useState } from 'react'
 
-const message =
-  'Offre de lancement \u2014 Profitez de -20\u00a0% sur nos services jusqu\u2019au 30 avril'
+const message = 'Launch offer - Get 20% off our services through April 30'
 
 export function TopBar() {
   const [visible, setVisible] = useState(true)
@@ -19,7 +18,10 @@ export function TopBar() {
             <span key={i}>{message}</span>
           ))}
         </div>
-        <div className="animate-marquee-bar flex shrink-0 items-center gap-16 whitespace-nowrap text-[11px] font-medium tracking-wide opacity-75" aria-hidden>
+        <div
+          className="animate-marquee-bar flex shrink-0 items-center gap-16 whitespace-nowrap text-[11px] font-medium tracking-wide opacity-75"
+          aria-hidden
+        >
           {Array.from({ length: 4 }).map((_, i) => (
             <span key={i}>{message}</span>
           ))}
@@ -30,7 +32,7 @@ export function TopBar() {
         type="button"
         onClick={() => setVisible(false)}
         className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-primary/60 p-0.5 opacity-50 transition-opacity hover:opacity-100"
-        aria-label="Fermer la bannière"
+        aria-label="Close banner"
       >
         <X className="size-3" />
       </button>

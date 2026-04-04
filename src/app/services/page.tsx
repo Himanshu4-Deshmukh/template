@@ -8,17 +8,41 @@ import {
 } from '@/components/seo/json-ld'
 
 const description =
-  'Création de site, SEO, identité visuelle, développement sur mesure — découvrez nos services pour développer votre activité en ligne.'
+  'Explore NP Tech Solutions services in software development, automation, cloud systems, analytics, and ongoing technical support.'
 
 const services = [
-  { title: 'Création de site vitrine', desc: 'Un site moderne, rapide et responsive qui présente clairement votre activité et inspire confiance à vos visiteurs.' },
-  { title: 'Application web', desc: 'Outils métier, plateformes de réservation, espaces clients — des applications pensées pour simplifier votre quotidien.' },
-  { title: 'Référencement naturel (SEO)', desc: 'Optimisation technique, contenu stratégique et suivi de positionnement pour gagner en visibilité sur Google.' },
-  { title: 'Identité visuelle', desc: 'Logo, charte graphique, supports de communication : une image cohérente qui vous ressemble.' },
-  { title: 'Communication digitale', desc: 'Stratégie de contenu, réseaux sociaux et campagnes pour développer votre audience en ligne.' },
-  { title: 'Développement sur mesure', desc: 'Intégrations, automatisations, API — des solutions techniques taillées pour vos besoins spécifiques.' },
-  { title: 'Maintenance & sécurité', desc: 'Mises à jour, sauvegardes, monitoring et corrections pour un site toujours performant et sécurisé.' },
-  { title: 'Analyse & reporting', desc: 'Tableaux de bord clairs pour suivre vos performances, comprendre vos visiteurs et ajuster votre stratégie.' },
+  {
+    title: 'Business websites',
+    desc: 'High-performance websites that present your business clearly and support lead generation.',
+  },
+  {
+    title: 'Web application',
+    desc: 'Operational tools, customer portals, and business platforms designed to simplify daily work.',
+  },
+  {
+    title: 'SEO & performance',
+    desc: 'Technical optimization, content structure, and speed improvements that strengthen visibility and usability.',
+  },
+  {
+    title: 'UI/UX systems',
+    desc: 'Product interface systems and design patterns that improve usability and consistency.',
+  },
+  {
+    title: 'Digital transformation',
+    desc: 'Technology planning and implementation support that helps teams modernize workflows and systems.',
+  },
+  {
+    title: 'Custom development',
+    desc: 'Integrations, automations, APIs, and custom functionality tailored to your business needs.',
+  },
+  {
+    title: 'Maintenance & security',
+    desc: 'Monitoring, backups, patching, and support that keep systems secure and dependable.',
+  },
+  {
+    title: 'Analytics & reporting',
+    desc: 'Dashboards and reporting tools that help teams measure performance and make better decisions.',
+  },
 ]
 
 export const metadata: Metadata = {
@@ -32,7 +56,7 @@ const jsonLd = {
   '@graph': [
     webPageJsonLd('Services', description, '/services'),
     breadcrumbJsonLd([
-      { name: 'Accueil', path: '/' },
+      { name: 'Home', path: '/' },
       { name: 'Services', path: '/services' },
     ]),
     ...services.map((s) => serviceJsonLd(s.title, s.desc, '/services')),

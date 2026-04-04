@@ -13,7 +13,7 @@ type BreadcrumbProps = {
 export function Breadcrumb({ items }: BreadcrumbProps) {
   return (
     <nav
-      aria-label="Fil d'Ariane"
+      aria-label="Breadcrumb"
       className="mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8"
     >
       <ol className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
@@ -23,16 +23,22 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
             className="flex items-center gap-1 transition-colors hover:text-foreground"
           >
             <Home className="size-3" aria-hidden />
-            <span>Accueil</span>
+            <span>Home</span>
           </Link>
         </li>
         {items.map((item, i) => {
           const isLast = i === items.length - 1
           return (
             <li key={item.label} className="flex items-center gap-1.5">
-              <ChevronRight className="size-3 text-muted-foreground/50" aria-hidden />
+              <ChevronRight
+                className="size-3 text-muted-foreground/50"
+                aria-hidden
+              />
               {isLast || !item.to ? (
-                <span aria-current="page" className="font-medium text-foreground/80">
+                <span
+                  aria-current="page"
+                  className="font-medium text-foreground/80"
+                >
                   {item.label}
                 </span>
               ) : (

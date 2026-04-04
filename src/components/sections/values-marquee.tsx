@@ -11,14 +11,14 @@ import {
 } from 'lucide-react'
 
 const values: { icon: LucideIcon; label: string }[] = [
-  { icon: Sparkles, label: 'Excellence' },
-  { icon: Handshake, label: 'Confiance' },
+  { icon: Sparkles, label: 'Engineering' },
+  { icon: Handshake, label: 'Partnership' },
   { icon: Lightbulb, label: 'Innovation' },
-  { icon: Eye, label: 'Transparence' },
-  { icon: Rocket, label: 'Performance' },
-  { icon: HeartHandshake, label: 'Proximité' },
-  { icon: Shield, label: 'Fiabilité' },
-  { icon: Target, label: 'Sur mesure' },
+  { icon: Eye, label: 'Visibility' },
+  { icon: Rocket, label: 'Scalability' },
+  { icon: HeartHandshake, label: 'Support' },
+  { icon: Shield, label: 'Security' },
+  { icon: Target, label: 'Automation' },
 ]
 
 function ValuesTrack({
@@ -31,18 +31,9 @@ function ValuesTrack({
   const animClass =
     direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
 
-  const textClass =
-    variant === 'dark'
-      ? 'text-white/60'
-      : 'text-foreground/70'
-  const iconClass =
-    variant === 'dark'
-      ? 'text-white/30'
-      : 'text-primary/50'
-  const separatorClass =
-    variant === 'dark'
-      ? 'text-white/20'
-      : 'text-border'
+  const textClass = variant === 'dark' ? 'text-white/60' : 'text-foreground/70'
+  const iconClass = variant === 'dark' ? 'text-white/30' : 'text-primary/50'
+  const separatorClass = variant === 'dark' ? 'text-white/20' : 'text-border'
 
   const items = values.map((v) => (
     <span
@@ -52,7 +43,7 @@ function ValuesTrack({
       <v.icon className={`size-4 ${iconClass}`} aria-hidden />
       {v.label}
       <span className={separatorClass} aria-hidden>
-        —
+        -
       </span>
     </span>
   ))
@@ -76,7 +67,11 @@ function ValuesTrack({
   )
 }
 
-export function ValuesMarquee({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
+export function ValuesMarquee({
+  variant = 'light',
+}: {
+  variant?: 'light' | 'dark'
+}) {
   const wrapperClass =
     variant === 'dark'
       ? 'border-t border-white/10 bg-black/20 backdrop-blur-sm py-4 sm:py-5'

@@ -4,7 +4,6 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import { FloatingCallButton } from '@/components/floating-call-button'
 import { Footer } from '@/components/layout/footer'
 import { Navbar } from '@/components/layout/navbar'
-import { TopBar } from '@/components/layout/top-bar'
 import { ThemeScript } from '@/components/theme/theme-script'
 import { siteConfig } from '@/lib/seo'
 
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
-    template: `%s — ${siteConfig.name}`,
+    template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
   openGraph: {
@@ -73,7 +72,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="fr"
+      lang="en"
       dir="ltr"
       className={`${inter.variable} ${jakarta.variable}`}
       suppressHydrationWarning
@@ -82,7 +81,6 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body className="flex min-h-dvh flex-col">
-        <TopBar />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

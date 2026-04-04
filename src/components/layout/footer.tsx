@@ -8,17 +8,17 @@ const navCols = [
   {
     title: 'Navigation',
     links: [
-      { label: 'Accueil', to: '/' },
-      { label: 'À propos', to: '/a-propos' },
+      { label: 'Home', to: '/' },
+      { label: 'About', to: '/a-propos' },
       { label: 'Services', to: '/services' },
       { label: 'Contact', to: '/contact' },
     ],
   },
   {
-    title: 'Légal',
+    title: 'Legal',
     links: [
-      { label: 'Mentions légales', to: '/mentions-legales' },
-      { label: 'Confidentialité', to: '/politique-de-confidentialite' },
+      { label: 'Legal notice', to: '/mentions-legales' },
+      { label: 'Privacy policy', to: '/politique-de-confidentialite' },
     ],
   },
 ] as const
@@ -109,20 +109,21 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-center gap-3 border-t border-border/40 pt-6 sm:flex-row sm:justify-between">
           <p className="text-xs text-muted-foreground/60">
-            &copy; {new Date().getFullYear()} {siteConfig.name} &mdash; Tous droits réservés
+            &copy; {new Date().getFullYear()} {siteConfig.name} - All rights
+            reserved
           </p>
           <div className="flex gap-5">
             <Link
               href="/mentions-legales"
               className="text-xs text-muted-foreground/60 transition-colors hover:text-muted-foreground"
             >
-              Mentions légales
+              Legal notice
             </Link>
             <Link
               href="/politique-de-confidentialite"
               className="text-xs text-muted-foreground/60 transition-colors hover:text-muted-foreground"
             >
-              Confidentialité
+              Privacy policy
             </Link>
           </div>
         </div>

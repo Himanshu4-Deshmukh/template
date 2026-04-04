@@ -1,19 +1,19 @@
 export const siteConfig = {
-  name: 'Nom Entreprise',
+  name: 'NP Tech Solutions',
   url: 'https://www.example.com',
-  locale: 'fr_FR',
+  locale: 'en_US',
   description:
-    'Votre entreprise — description courte et percutante de votre activité. Adaptez cette ligne à votre domaine.',
+    'Smart software, cloud, and automation solutions that help businesses operate faster and scale with confidence.',
   ogImage: 'https://www.example.com/og.png',
-  twitterHandle: '@votrecompte',
-  themeColor: '#6d28d9',
-  phone: '+33 1 23 45 67 89',
-  email: 'contact@example.com',
+  twitterHandle: '@nptechsolutions',
+  themeColor: '#3B6FE8',
+  phone: '8055223358',
+  email: 'nptechsolutions@gmail.com',
   address: {
-    street: '12 Rue Exemple',
-    city: 'Paris',
-    postalCode: '75001',
-    country: 'FR',
+    street: 'To be notified',
+    city: '',
+    postalCode: '',
+    country: '',
   },
 } as const
 
@@ -34,9 +34,11 @@ export function buildTitle(page?: string) {
 
 export const routes = [
   '/',
-  '/a-propos',
   '/services',
+  '/about',
   '/contact',
-  '/mentions-legales',
-  '/politique-de-confidentialite',
+  '/privacy-policy',
+  '/legal',
 ] as const
+
+export type Route = (typeof routes)[number]

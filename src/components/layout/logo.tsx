@@ -1,8 +1,8 @@
-import { Globe } from 'lucide-react'
 import Link from 'next/link'
 
-import { cn } from '@/lib/utils'
+import LogoImage from '@/assets/NPTech-Logo.png'
 import { siteConfig } from '@/lib/seo'
+import { cn } from '@/lib/utils'
 
 type LogoProps = {
   className?: string
@@ -17,9 +17,13 @@ export function Logo({ className }: LogoProps) {
         className
       )}
     >
-      <span className="flex size-9 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15 transition-transform duration-300 group-hover:scale-[1.03]">
-        <Globe className="size-[18px]" aria-hidden />
-      </span>
+      <img
+        src={LogoImage.src}
+        alt={`${siteConfig.name} logo`}
+        width={LogoImage.width}
+        height={LogoImage.height}
+        className="h-9 w-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+      />
       <span>{siteConfig.name}</span>
     </Link>
   )

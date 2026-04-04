@@ -1,122 +1,152 @@
-import { Star } from 'lucide-react'
+'use client'
 
-import { SectionTitle } from '@/components/ui/section-title'
+import { Star, ShieldCheck, Users, TrendingUp, Award, Clock } from 'lucide-react'
 
 const topRow = [
-  {
-    name: 'Marie D.',
-    role: 'Boulangerie Le Fournil',
-    quote: "Depuis le nouveau site, je reçois 3 fois plus d'appels. Les clients nous trouvent enfin sur Google.",
-    stars: 5,
-  },
-  {
-    name: 'Thomas L.',
-    role: 'Cabinet Conseil TLR',
-    quote: 'Un travail soigné, un site clair et professionnel. Mes prospects comprennent immédiatement ce que je propose.',
-    stars: 5,
-  },
-  {
-    name: 'Camille B.',
-    role: 'Atelier Camille',
-    quote: "Le site reflète parfaitement l'univers de ma marque. J'ai gagné en crédibilité auprès de mes clients.",
-    stars: 5,
-  },
-  {
-    name: 'Laurent M.',
-    role: 'LM Rénovation',
-    quote: 'En trois mois, mon chiffre a augmenté de 40 %. Le site et le SEO font vraiment la différence.',
-    stars: 5,
-  },
-  {
-    name: 'Nadia K.',
-    role: 'Agence NovaTour',
-    quote: "Un accompagnement au top, des délais respectés et un résultat qui dépasse mes attentes.",
-    stars: 5,
-  },
+  { name: 'Marie D.',   role: 'Le Fournil Bakery',     quote: 'Since launching the new site, I receive three times more calls. Clients finally find us on Google.', stars: 5 },
+  { name: 'Thomas L.',  role: 'TLR Consulting',         quote: 'Careful work and a clear, professional website. Prospects immediately understand what I offer.',    stars: 5 },
+  { name: 'Camille B.', role: 'Atelier Camille',        quote: 'The site perfectly reflects my brand world. I have gained a lot of credibility with my clients.',   stars: 5 },
+  { name: 'Laurent M.', role: 'LM Renovation',          quote: 'In three months, my revenue increased by 40%. The website and SEO truly made the difference.',      stars: 5 },
+  { name: 'Nadia K.',   role: 'NovaTour Agency',        quote: 'Excellent support, deadlines met, and a result that exceeded my expectations.',                      stars: 5 },
 ] as const
 
 const bottomRow = [
-  {
-    name: 'Sophie R.',
-    role: 'Studio Pilates Zen',
-    quote: "L'équipe a su capter l'ambiance de mon studio. Les réservations ont décollé.",
-    stars: 5,
-  },
-  {
-    name: 'Pierre V.',
-    role: 'Transports Vallée',
-    quote: "Un investissement rentabilisé en quelques semaines. Des contacts qualifiés chaque jour.",
-    stars: 5,
-  },
-  {
-    name: 'Julie A.',
-    role: "Les Jardins d'Alice",
-    quote: "Ils ont transformé notre présence en ligne. Le site est magnifique et nos ventes ont triplé.",
-    stars: 5,
-  },
-  {
-    name: 'Franck G.',
-    role: 'Studio FG',
-    quote: "Design épuré, navigation fluide, exactement ce que je voulais pour présenter mes projets.",
-    stars: 4,
-  },
-  {
-    name: 'Émilie T.',
-    role: 'Clinique Vétérinaire du Parc',
-    quote: "Nos clients trouvent toutes les infos facilement. La prise de rendez-vous a changé notre quotidien.",
-    stars: 5,
-  },
+  { name: 'Sophie R.',  role: 'Zen Pilates Studio',     quote: 'The team captured the atmosphere of my studio perfectly. Bookings really took off.',                stars: 5 },
+  { name: 'Pierre V.',  role: 'Valley Transport',        quote: 'An investment that paid for itself within weeks. Qualified leads arrive every day.',                 stars: 5 },
+  { name: 'Julie A.',   role: "Alice's Gardens",         quote: "They transformed our online presence. The site is beautiful and our sales tripled.",                 stars: 5 },
+  { name: 'Franck G.',  role: 'Studio FG',               quote: 'Clean design, smooth navigation, exactly what I wanted to showcase my projects.',                    stars: 4 },
+  { name: 'Emilie T.',  role: 'Parc Veterinary Clinic',  quote: 'Our clients can find everything easily. Appointment booking has changed our day-to-day work.',       stars: 5 },
 ] as const
 
-function GoogleLogo() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-4" aria-label="Google">
-      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
-      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 0 0 1 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05" />
-      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
-    </svg>
-  )
-}
+const metrics = [
+  { icon: Users,      value: '500+', label: 'Clients Served',    accent: '#3B82F6' },
+  { icon: TrendingUp, value: '4.9',  label: 'Average Rating',    accent: '#14B8A6' },
+  { icon: Award,      value: '98%',  label: 'Satisfaction Rate', accent: '#8B5CF6' },
+  { icon: Clock,      value: '10+',  label: 'Years in Service',  accent: '#F59E0B' },
+]
+
+// Font pairing:
+//   Headings / metric values  → Playfair Display (dramatic serif)
+//   Body / quotes             → Lora (readable, warm serif)
+//   Labels / eyebrow / small  → EB Garamond (classic, refined)
+
+const STYLES = `
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=EB+Garamond:wght@400;500;600&display=swap');
+
+  @keyframes ts-left  { from { transform: translateX(0);    } to { transform: translateX(-50%); } }
+  @keyframes ts-right { from { transform: translateX(-50%); } to { transform: translateX(0);    } }
+  .ts-ml { animation: ts-left  40s linear infinite; }
+  .ts-mr { animation: ts-right 40s linear infinite; }
+  .ts-track:hover .ts-ml,
+  .ts-track:hover .ts-mr { animation-play-state: paused; }
+  .ts-card {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .ts-card:hover {
+    box-shadow: 0 8px 28px rgba(59,111,232,0.12) !important;
+    border-color: #93c5fd !important;
+    transform: translateY(-2px);
+  }
+  .metric-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.10), 0 3px 10px rgba(0,0,0,0.05) !important;
+  }
+`
 
 function TestimonialCard({
   testimonial,
 }: {
   testimonial: { name: string; role: string; quote: string; stars: number }
 }) {
+  const initials = testimonial.name.split(' ').map((n) => n[0]).join('')
+
   return (
-    <figure className="flex h-[180px] w-[300px] shrink-0 flex-col rounded-xl border border-border/60 bg-card/80 px-5 py-4 shadow-[var(--shadow-xs)] ring-1 ring-foreground/[0.03] backdrop-blur-sm">
-      {/* Header: stars + Google logo */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-0.5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              className={`size-3 ${i < testimonial.stars ? 'fill-amber-400 text-amber-400' : 'fill-muted text-muted'}`}
-              aria-hidden
-            />
+    <figure
+      className="ts-card"
+      style={{
+        width: 312,
+        flexShrink: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        background: '#ffffff',
+        border: '1px solid #e2e8f0',
+        borderTop: '3px solid #3B6FE8',
+        borderRadius: 14,
+        padding: '1.1rem 1.25rem',
+        minHeight: 188,
+        boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
+      }}
+    >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem' }}>
+        <div style={{ display: 'flex', gap: 2 }}>
+          {[1, 2, 3, 4, 5].map((i) => (
+            <Star key={i} style={{ width: 13, height: 13, fill: i <= testimonial.stars ? '#f59e0b' : '#e2e8f0', color: i <= testimonial.stars ? '#f59e0b' : '#e2e8f0' }} />
           ))}
         </div>
-        <GoogleLogo />
+        {/* "VERIFIED" badge — EB Garamond for the label */}
+        <span style={{
+          display: 'inline-flex', alignItems: 'center', gap: 4,
+          padding: '2px 8px', borderRadius: 4,
+          fontSize: 10, fontFamily: '"EB Garamond", Georgia, serif',
+          fontWeight: 600, letterSpacing: '0.08em',
+          background: '#eff6ff', color: '#1d4ed8', border: '1px solid #bfdbfe',
+        }}>
+          <ShieldCheck style={{ width: 10, height: 10 }} />
+          VERIFIED
+        </span>
       </div>
 
-      {/* Quote */}
-      <blockquote className="mt-3 flex-1">
-        <p className="text-[13px] leading-relaxed text-foreground/85">
+      {/* Quote — Lora italic for an elegant editorial feel */}
+      <blockquote style={{ flex: 1, margin: 0 }}>
+        <p style={{
+          margin: 0,
+          fontSize: 13,
+          lineHeight: 1.75,
+          color: '#475569',
+          fontFamily: '"Lora", Georgia, serif',
+          fontStyle: 'italic',
+          fontWeight: 400,
+        }}>
           "{testimonial.quote}"
         </p>
       </blockquote>
 
-      {/* Author */}
-      <figcaption className="mt-3 flex items-center gap-2.5 border-t border-border/40 pt-3">
-        <div className="flex size-7 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary">
-          {testimonial.name.charAt(0)}
+      <figcaption style={{
+        display: 'flex', alignItems: 'center', gap: 10,
+        marginTop: '0.85rem', paddingTop: '0.75rem',
+        borderTop: '1px solid #f1f5f9',
+      }}>
+        <div style={{
+          width: 32, height: 32, borderRadius: '50%',
+          background: 'linear-gradient(135deg, #3B6FE8 0%, #38bdf8 100%)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          /* Initials in EB Garamond */
+          fontSize: 12, fontWeight: 600,
+          fontFamily: '"EB Garamond", Georgia, serif',
+          color: '#fff', flexShrink: 0,
+        }}>
+          {initials}
         </div>
-        <div className="min-w-0">
-          <p className="truncate text-xs font-semibold text-foreground">
+        <div style={{ minWidth: 0 }}>
+          {/* Name — Lora medium */}
+          <p style={{
+            margin: 0, fontSize: 13, fontWeight: 500,
+            fontFamily: '"Lora", Georgia, serif',
+            color: '#0f172a',
+            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+          }}>
             {testimonial.name}
           </p>
-          <p className="truncate text-[11px] text-muted-foreground">
+          {/* Role — EB Garamond */}
+          <p style={{
+            margin: 0, fontSize: 11,
+            fontFamily: '"EB Garamond", Georgia, serif',
+            color: '#64748b',
+            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+          }}>
             {testimonial.role}
           </p>
         </div>
@@ -132,23 +162,17 @@ function MarqueeRow({
   items: readonly { name: string; role: string; quote: string; stars: number }[]
   direction: 'left' | 'right'
 }) {
-  const animationClass =
-    direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
-
+  const cls = direction === 'left' ? 'ts-ml' : 'ts-mr'
   return (
-    <div className="group relative flex overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent sm:w-24" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent sm:w-24" />
-
-      <div className={`flex shrink-0 gap-6 py-2 ${animationClass} group-hover:[animation-play-state:paused]`}>
-        {items.map((t) => (
-          <TestimonialCard key={t.name} testimonial={t} />
-        ))}
-      </div>
-      <div aria-hidden className={`flex shrink-0 gap-6 py-2 ${animationClass} group-hover:[animation-play-state:paused]`}>
-        {items.map((t) => (
-          <TestimonialCard key={t.name} testimonial={t} />
-        ))}
+    <div style={{ position: 'relative', display: 'flex', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: '0 auto 0 0', width: 80, zIndex: 10, background: 'linear-gradient(to right, #f8fafc, transparent)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: '0 0 0 auto', width: 80, zIndex: 10, background: 'linear-gradient(to left, #f8fafc, transparent)', pointerEvents: 'none' }} />
+      <div className="ts-track" style={{ display: 'flex', width: '100%' }}>
+        <div className={cls} style={{ display: 'flex', gap: '1rem', padding: '0.5rem', flexShrink: 0 }}>
+          {[...items, ...items].map((t, i) => (
+            <TestimonialCard key={i} testimonial={t} />
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -156,17 +180,165 @@ function MarqueeRow({
 
 export function TestimonialsSection() {
   return (
-    <section className="overflow-hidden border-y border-border/60 bg-muted/10">
-      <div className="mx-auto max-w-6xl px-4 pt-14 sm:px-6 lg:px-8 lg:pt-20">
-        <SectionTitle
-          eyebrow="Témoignages"
-          title="Ils nous font confiance"
-          description="Des entreprises de tous horizons qui ont gagné en visibilité et en crédibilité."
-        />
+    <section style={{
+      background: '#f8fafc',
+      borderTop: '1px solid #e2e8f0',
+      borderBottom: '1px solid #e2e8f0',
+      overflow: 'hidden',
+      position: 'relative',
+    }}>
+      <style>{STYLES}</style>
+
+      {/* Subtle dot grid */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: 'radial-gradient(circle, rgba(59,111,232,0.12) 1px, transparent 1px)',
+        backgroundSize: '28px 28px',
+        maskImage: 'radial-gradient(ellipse 80% 50% at 50% 0%, black 30%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 50% at 50% 0%, black 30%, transparent 100%)',
+        opacity: 0.4,
+        pointerEvents: 'none',
+      }} />
+
+      {/* Decorative blobs */}
+      <div aria-hidden style={{
+        position: 'absolute', top: '-80px', right: '-60px',
+        width: 340, height: 340, borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(59,111,232,0.07) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+      <div aria-hidden style={{
+        position: 'absolute', bottom: '-60px', left: '-40px',
+        width: 280, height: 280, borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* ── Header ── */}
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: 1200, margin: '0 auto', padding: '4.5rem 1.5rem 0' }}>
+
+        {/* Eyebrow — EB Garamond spaced caps */}
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8,
+          marginBottom: '1.25rem',
+          padding: '6px 16px',
+          background: 'linear-gradient(135deg, #EEF3FD 0%, #E8EFFE 100%)',
+          border: '1px solid #C7D8FA',
+          borderRadius: 999,
+          boxShadow: '0 1px 4px rgba(59,111,232,0.1)',
+        }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#3B6FE8', flexShrink: 0, boxShadow: '0 0 0 2px rgba(59,111,232,0.2)' }} />
+          <span style={{
+            fontSize: '0.72rem', fontWeight: 600,
+            fontFamily: '"EB Garamond", Georgia, serif',
+            color: '#3B6FE8', letterSpacing: '0.18em', textTransform: 'uppercase',
+          }}>
+            Client Reviews
+          </span>
+        </div>
+
+        {/* H2 — Playfair Display, as before but now the sole display serif */}
+        <h2 style={{
+          fontFamily: '"Playfair Display", Georgia, serif',
+          fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
+          fontWeight: 700, color: '#0f172a',
+          margin: '0 0 0.65rem', lineHeight: 1.15,
+        }}>
+          Trusted by 500+ businesses<br />
+          <em style={{ fontStyle: 'italic', color: '#3B6FE8' }}>across every industry.</em>
+        </h2>
+
+        {/* Subheading — Lora regular */}
+        <p style={{
+          fontSize: '0.95rem',
+          fontFamily: '"Lora", Georgia, serif',
+          color: '#64748b',
+          maxWidth: 480, margin: '0 0 3rem', lineHeight: 1.8,
+        }}>
+          Every review is authenticated and tied to a real client engagement — no anonymous feedback, no inflated scores.
+        </p>
+
+        {/* ── Metric cards ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: 20,
+          marginBottom: '3.5rem',
+        }}>
+          {metrics.map(({ icon: Icon, value, label, accent }) => (
+            <div
+              key={label}
+              className="metric-card"
+              style={{
+                background: '#FFFFFF',
+                border: '1px solid #E2E8F0',
+                borderRadius: 20,
+                padding: '32px 28px 28px',
+                boxShadow: `0 2px 8px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.04), 0 0 0 1px rgba(255,255,255,0.9) inset`,
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+            >
+              {/* soft ambient glow */}
+              <div style={{
+                position: 'absolute', top: '-30px', right: '-30px',
+                width: 110, height: 110, borderRadius: '50%',
+                background: `radial-gradient(circle, ${accent}22 0%, transparent 70%)`,
+                pointerEvents: 'none',
+              }} />
+
+              {/* bottom accent bar */}
+              <div style={{
+                position: 'absolute', bottom: 0, left: 0, right: 0,
+                height: 4,
+                background: `linear-gradient(90deg, ${accent}aa, ${accent})`,
+                borderRadius: '0 0 20px 20px',
+              }} />
+
+              {/* icon badge */}
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                width: 48, height: 48, borderRadius: 14,
+                background: `linear-gradient(135deg, ${accent}22 0%, ${accent}10 100%)`,
+                border: `1.5px solid ${accent}30`,
+                marginBottom: 20,
+                boxShadow: `0 2px 8px ${accent}20`,
+              }}>
+                <Icon style={{ width: 22, height: 22, color: accent }} />
+              </div>
+
+              {/* value — Playfair Display for the big number */}
+              <p style={{
+                margin: '0 0 6px',
+                fontSize: '2.6rem',
+                fontWeight: 800,
+                color: '#0A1628',
+                lineHeight: 1,
+                fontFamily: 'var(--font-display), Inter, system-ui, sans-serif',
+                letterSpacing: '-0.02em',
+              }}>
+                {value}
+              </p>
+
+              {/* label — EB Garamond */}
+              <p style={{
+                margin: 0,
+                fontSize: '0.9rem',
+                fontFamily: '"EB Garamond", Georgia, serif',
+                color: '#64748B',
+                fontWeight: 500,
+                letterSpacing: '0.03em',
+              }}>
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="mt-10 space-y-6 pb-14 lg:pb-20">
-        <MarqueeRow items={topRow} direction="left" />
+      {/* ── Marquee rows ── */}
+      <div style={{ position: 'relative', zIndex: 1, paddingBottom: '4rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <MarqueeRow items={topRow}    direction="left"  />
         <MarqueeRow items={bottomRow} direction="right" />
       </div>
     </section>

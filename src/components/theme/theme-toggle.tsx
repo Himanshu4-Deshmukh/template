@@ -28,7 +28,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       variant="ghost"
       size="icon-sm"
       className={cn('rounded-full', className)}
-      aria-label={dark ? 'Passer en thème clair' : 'Passer en thème sombre'}
+      aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
       aria-pressed={dark}
       onClick={() => setDark((d) => !d)}
     >
