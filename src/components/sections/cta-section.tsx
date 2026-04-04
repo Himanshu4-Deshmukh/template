@@ -23,9 +23,28 @@ export function CtaSection() {
           0%, 100% { transform: translateY(0px) scale(1); }
           50%       { transform: translateY(14px) scale(0.97); }
         }
+        @media (max-width: 767px) {
+          .cta-shell {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+          }
+          .cta-panel {
+            border-radius: 1.5rem !important;
+            padding: 2.75rem 1.25rem !important;
+          }
+          .cta-actions {
+            width: 100%;
+            flex-direction: column;
+          }
+          .cta-actions a {
+            width: 100%;
+            justify-content: center;
+          }
+        }
       `}</style>
 
       <div
+        className="cta-shell"
         style={{
           maxWidth: '96rem',
           margin: '0 auto',
@@ -33,6 +52,7 @@ export function CtaSection() {
         }}
       >
         <motion.div
+          className="cta-panel"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -262,6 +282,7 @@ export function CtaSection() {
 
             {/* Button row */}
             <motion.div
+              className="cta-actions"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -50,6 +50,21 @@ export function ServicesPreview() {
         overflow: 'hidden',
       }}
     >
+      <style>{`
+        @media (max-width: 767px) {
+          .services-preview-heading {
+            gap: 1.25rem !important;
+          }
+
+          .services-preview-grid {
+            grid-template-columns: 1fr !important;
+          }
+
+          .services-preview-card {
+            padding: 1.6rem 1.35rem !important;
+          }
+        }
+      `}</style>
       {/* Decorative blobs */}
       <div
         aria-hidden
@@ -84,7 +99,7 @@ export function ServicesPreview() {
         style={{
           maxWidth: '96rem',
           margin: '0 auto',
-          padding: '7rem 4rem 8rem',
+          padding: 'clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem) clamp(4.5rem, 8vw, 8rem)',
           position: 'relative',
         }}
       >
@@ -117,6 +132,7 @@ export function ServicesPreview() {
 
           {/* Heading + description: side-by-side */}
           <div
+            className="services-preview-heading"
             style={{
               display: 'flex',
               alignItems: 'flex-end',
@@ -160,9 +176,10 @@ export function ServicesPreview() {
 
         {/* Cards grid — enforces 4 cols at wide widths */}
         <div
+          className="services-preview-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
             gap: '1.75rem',
           }}
         >
@@ -244,6 +261,7 @@ function ServiceCard({
 
   return (
     <div
+      className="services-preview-card"
       style={{
         background: '#FFFFFF',
         border: '1px solid #E4E8F0',
