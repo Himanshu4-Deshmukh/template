@@ -1,7 +1,9 @@
 'use client'
 
+import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send } from 'lucide-react'
+import { useState } from 'react'
 
 import { PageHero } from '@/components/sections/page-hero'
 import { siteConfig } from '@/lib/seo'
@@ -71,6 +73,57 @@ function FocusInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
 }
 
 export function ContactContent() {
+  const [form, setForm] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    phone: '',
+    message: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setForm(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setSuccessMessage('')
+    setErrorMessage('')
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      setErrorMessage('Email service is not configured yet. Please try again later.')
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      await emailjs.send(serviceId, templateId, form, { publicKey })
+      setSuccessMessage('Your inquiry has been sent. We will get back to you within 1 business day.')
+      setForm({
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        message: '',
+      })
+    } catch {
+      setErrorMessage('We could not send your message right now. Please try again in a moment.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <>
       <PageHero
@@ -159,25 +212,58 @@ export function ContactContent() {
                 </h2>
 
                 <form
-                  onSubmit={(e) => e.preventDefault()}
+                  onSubmit={handleSubmit}
                   style={{ display: 'flex', flexDirection: 'column', gap: 18 }}
                 >
                   {/* Name row */}
                   <div style={{ display: 'grid', gap: 16, gridTemplateColumns: '1fr 1fr' }}>
                     <Field id="firstname" label="First name">
-                      <FocusInput id="firstname" name="firstname" placeholder="John" autoComplete="given-name" />
+                      <FocusInput
+                        id="firstname"
+                        name="firstname"
+                        placeholder="John"
+                        autoComplete="given-name"
+                        value={form.firstname}
+                        onChange={handleChange}
+                        required
+                      />
                     </Field>
                     <Field id="lastname" label="Last name">
-                      <FocusInput id="lastname" name="lastname" placeholder="Smith" autoComplete="family-name" />
+                      <FocusInput
+                        id="lastname"
+                        name="lastname"
+                        placeholder="Smith"
+                        autoComplete="family-name"
+                        value={form.lastname}
+                        onChange={handleChange}
+                        required
+                      />
                     </Field>
                   </div>
 
                   <Field id="email" label="Email">
-                    <FocusInput id="email" name="email" type="email" placeholder="john@company.com" autoComplete="email" />
+                    <FocusInput
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="john@company.com"
+                      autoComplete="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                    />
                   </Field>
 
                   <Field id="phone" label="Phone (optional)">
-                    <FocusInput id="phone" name="phone" type="tel" placeholder="+1 555 000 0000" autoComplete="tel" />
+                    <FocusInput
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+1 555 000 0000"
+                      autoComplete="tel"
+                      value={form.phone}
+                      onChange={handleChange}
+                    />
                   </Field>
 
                   <Field id="message" label="Your message">
@@ -186,6 +272,9 @@ export function ContactContent() {
                       name="message"
                       rows={5}
                       placeholder="Tell us about your systems, goals, or technical challenges..."
+                      value={form.message}
+                      onChange={handleChange}
+                      required
                       style={{
                         ...inputStyle,
                         height: 'auto',
@@ -207,9 +296,36 @@ export function ContactContent() {
                     />
                   </Field>
 
+                  {successMessage ? (
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: '0.9rem',
+                        color: '#0E9F74',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {successMessage}
+                    </p>
+                  ) : null}
+
+                  {errorMessage ? (
+                    <p
+                      style={{
+                        margin: 0,
+                        fontSize: '0.9rem',
+                        color: '#DC2626',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {errorMessage}
+                    </p>
+                  ) : null}
+
                   {/* Submit */}
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -228,8 +344,10 @@ export function ContactContent() {
                         '0 2px 14px rgba(59,111,232,0.35), 0 1px 3px rgba(59,111,232,0.2)',
                       transition: 'all 0.2s ease',
                       marginTop: 4,
+                      opacity: isSubmitting ? 0.75 : 1,
                     }}
                     onMouseEnter={(e) => {
+                      if (isSubmitting) return
                       const el = e.currentTarget
                       el.style.background = 'linear-gradient(135deg, #4A7CF0 0%, #2F5FD4 100%)'
                       el.style.boxShadow = '0 6px 24px rgba(59,111,232,0.42)'
@@ -243,7 +361,7 @@ export function ContactContent() {
                     }}
                   >
                     <Send size={17} />
-                    Send inquiry
+                    {isSubmitting ? 'Sending...' : 'Send inquiry'}
                   </button>
                 </form>
               </div>
