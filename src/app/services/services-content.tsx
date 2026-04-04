@@ -14,55 +14,58 @@ import {
 
 import { CtaSection } from '@/components/sections/cta-section'
 import { PageHero } from '@/components/sections/page-hero'
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { SectionTitle } from '@/components/ui/section-title'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
 const services = [
   {
     icon: Globe,
-    title: 'Création de site vitrine',
-    desc: 'Un site moderne, rapide et responsive qui présente clairement votre activité et inspire confiance à vos visiteurs.',
+    title: 'Business websites',
+    accent: '#3B82F6',
+    desc: 'High-performance marketing and corporate websites that communicate your value clearly and convert attention into leads.',
   },
   {
     icon: Smartphone,
-    title: 'Application web',
-    desc: 'Outils métier, plateformes de réservation, espaces clients — des applications pensées pour simplifier votre quotidien.',
+    title: 'Web applications',
+    accent: '#14B8A6',
+    desc: 'Dashboards, portals, booking platforms, and internal tools built to simplify complex operations.',
   },
   {
     icon: Search,
-    title: 'Référencement naturel (SEO)',
-    desc: 'Optimisation technique, contenu stratégique et suivi de positionnement pour gagner en visibilité sur Google.',
+    title: 'SEO & performance',
+    accent: '#8B5CF6',
+    desc: 'Technical optimization, content structure, and speed improvements that increase discoverability and usability.',
   },
   {
     icon: Palette,
-    title: 'Identité visuelle',
-    desc: 'Logo, charte graphique, supports de communication : une image cohérente qui vous ressemble.',
+    title: 'UI/UX systems',
+    accent: '#F59E0B',
+    desc: 'Interfaces and design systems that make your products easier to use and your brand more consistent.',
   },
   {
     icon: Megaphone,
-    title: 'Communication digitale',
-    desc: 'Stratégie de contenu, réseaux sociaux et campagnes pour développer votre audience en ligne.',
+    title: 'Digital transformation',
+    accent: '#EF4444',
+    desc: 'Technology planning and implementation support that helps teams modernize systems and workflows.',
   },
   {
     icon: Code,
-    title: 'Développement sur mesure',
-    desc: 'Intégrations, automatisations, API — des solutions techniques taillées pour vos besoins spécifiques.',
+    title: 'Custom development',
+    accent: '#10B981',
+    desc: 'APIs, integrations, automations, and bespoke features tailored to the needs of your business.',
   },
   {
     icon: ShieldCheck,
-    title: 'Maintenance & sécurité',
-    desc: 'Mises à jour, sauvegardes, monitoring et corrections pour un site toujours performant et sécurisé.',
+    title: 'Maintenance & security',
+    accent: '#6366F1',
+    desc: 'Monitoring, patching, backups, and technical support that protect uptime and reduce risk.',
   },
   {
     icon: BarChart3,
-    title: 'Analyse & reporting',
-    desc: 'Tableaux de bord clairs pour suivre vos performances, comprendre vos visiteurs et ajuster votre stratégie.',
+    title: 'Analytics & reporting',
+    accent: '#EC4899',
+    desc: 'Operational and customer reporting that gives teams clearer data for faster, smarter decisions.',
   },
 ] as const
 
@@ -71,15 +74,72 @@ export function ServicesContent() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Tout ce qu'il faut pour réussir en ligne"
-        description="Des prestations complètes, de la conception à l'accompagnement continu, adaptées à toutes les tailles d'entreprise."
+        title="Technology services built around business outcomes"
+        description="We combine engineering, automation, digital platforms, and support services to help organizations work smarter and grow faster."
         image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80"
         breadcrumb="Services"
       />
 
-      <section className="border-b border-border/60">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <section
+        style={{
+          borderBottom: '1px solid #E2E8F0',
+          background: '#F8FAFC',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* decorative blobs */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: '-140px',
+            right: '-100px',
+            width: 420,
+            height: 420,
+            borderRadius: '50%',
+            background:
+              'radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            bottom: '-120px',
+            left: '-80px',
+            width: 360,
+            height: 360,
+            borderRadius: '50%',
+            background:
+              'radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        <div
+          style={{
+            position: 'relative',
+            maxWidth: '90rem',
+            margin: '0 auto',
+            padding: '80px 40px',
+          }}
+        >
+          <SectionTitle
+            eyebrow="What we do"
+            title="Services built around your outcomes"
+          />
+
+          <div
+            style={{
+              marginTop: 52,
+              display: 'grid',
+              gap: 20,
+              gridTemplateColumns: 'repeat(4, 1fr)',
+            }}
+            className="sm:grid-cols-2 lg:grid-cols-4"
+          >
             {services.map((s, i) => (
               <motion.div
                 key={s.title}
@@ -88,19 +148,85 @@ export function ServicesContent() {
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.45, ease, delay: i * 0.03 }}
               >
-                <Card className="h-full rounded-2xl border-border/80 bg-card/70 shadow-[var(--shadow-sm)] ring-1 ring-foreground/5 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)]">
-                  <CardHeader>
-                    <span className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15">
-                      <s.icon className="size-5" aria-hidden />
-                    </span>
-                    <CardTitle className="font-display text-base">
-                      {s.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm leading-relaxed">
-                      {s.desc}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    border: '1px solid #E2E8F0',
+                    borderRadius: 16,
+                    padding: '24px 22px 26px',
+                    boxShadow:
+                      '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)',
+                    height: '100%',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLDivElement
+                    el.style.transform = 'translateY(-3px)'
+                    el.style.boxShadow =
+                      '0 4px 12px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.06)'
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLDivElement
+                    el.style.transform = 'translateY(0)'
+                    el.style.boxShadow =
+                      '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)'
+                  }}
+                >
+                  {/* per-card accent line */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: 3,
+                      background: s.accent,
+                      borderRadius: '0 0 16px 16px',
+                    }}
+                  />
+
+                  {/* icon badge */}
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: 44,
+                      height: 44,
+                      borderRadius: 12,
+                      background: `${s.accent}18`,
+                      border: `1px solid ${s.accent}30`,
+                      marginBottom: 16,
+                    }}
+                  >
+                    <s.icon size={20} style={{ color: s.accent }} aria-hidden />
+                  </div>
+
+                  <h3
+                    style={{
+                      fontFamily:
+                        'var(--font-display, "Playfair Display", Georgia, serif)',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      color: '#0F172A',
+                      margin: '0 0 8px',
+                    }}
+                  >
+                    {s.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: '0.875rem',
+                      color: '#64748B',
+                      lineHeight: 1.65,
+                      margin: 0,
+                    }}
+                  >
+                    {s.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
