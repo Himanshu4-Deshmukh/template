@@ -126,6 +126,35 @@ export function ContactContent() {
 
   return (
     <>
+      <style>{`
+        @media (max-width: 1023px) {
+          .contact-content-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .contact-content-shell {
+            padding: 64px 20px !important;
+          }
+
+          .contact-content-form-card {
+            padding: 28px 20px 32px !important;
+          }
+
+          .contact-content-name-grid {
+            grid-template-columns: 1fr !important;
+          }
+
+          .contact-content-sidebar-card {
+            padding: 24px 18px !important;
+          }
+
+          .contact-content-badge {
+            align-items: flex-start !important;
+          }
+        }
+      `}</style>
       <PageHero
         eyebrow="Contact"
         title="Talk with our technology team"
@@ -157,6 +186,7 @@ export function ContactContent() {
         }} />
 
         <div
+          className="contact-content-shell"
           style={{
             position: 'relative',
             maxWidth: '72rem',
@@ -165,12 +195,12 @@ export function ContactContent() {
           }}
         >
           <div
+            className="contact-content-grid"
             style={{
               display: 'grid',
               gap: 28,
               gridTemplateColumns: '1.25fr 0.75fr',
             }}
-            className="lg:grid-cols-[1.25fr_0.75fr] grid-cols-1"
           >
             {/* ── Contact form ── */}
             <motion.div
@@ -180,6 +210,7 @@ export function ContactContent() {
               transition={{ duration: 0.5, ease }}
             >
               <div
+                className="contact-content-form-card"
                 style={{
                   background: '#FFFFFF',
                   border: '1px solid #E2E8F0',
@@ -216,7 +247,10 @@ export function ContactContent() {
                   style={{ display: 'flex', flexDirection: 'column', gap: 18 }}
                 >
                   {/* Name row */}
-                  <div style={{ display: 'grid', gap: 16, gridTemplateColumns: '1fr 1fr' }}>
+                  <div
+                    className="contact-content-name-grid"
+                    style={{ display: 'grid', gap: 16, gridTemplateColumns: '1fr 1fr' }}
+                  >
                     <Field id="firstname" label="First name">
                       <FocusInput
                         id="firstname"
@@ -259,7 +293,7 @@ export function ContactContent() {
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="+1 555 000 0000"
+                      placeholder="+91 9876543210"
                       autoComplete="tel"
                       value={form.phone}
                       onChange={handleChange}
@@ -377,6 +411,7 @@ export function ContactContent() {
             >
               {/* Contact details card */}
               <div
+                className="contact-content-sidebar-card"
                 style={{
                   background: '#FFFFFF',
                   border: '1px solid #E2E8F0',
@@ -538,6 +573,7 @@ export function ContactContent() {
 
               {/* Response time badge */}
               <div
+                className="contact-content-badge"
                 style={{
                   background: 'linear-gradient(135deg, #EEF3FD 0%, #E8EFFE 100%)',
                   border: '1px solid #C7D8FA',
