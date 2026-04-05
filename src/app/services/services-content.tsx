@@ -72,6 +72,29 @@ const services = [
 export function ServicesContent() {
   return (
     <>
+      <style>{`
+        @media (max-width: 1023px) {
+          .services-content-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .services-content-shell {
+            padding: 64px 20px !important;
+          }
+
+          .services-content-grid {
+            margin-top: 40px !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+
+          .services-content-card {
+            padding: 20px 18px 22px !important;
+          }
+        }
+      `}</style>
       <PageHero
         eyebrow="Services"
         title="Technology services built around business outcomes"
@@ -119,6 +142,7 @@ export function ServicesContent() {
         />
 
         <div
+          className="services-content-shell"
           style={{
             position: 'relative',
             maxWidth: '90rem',
@@ -132,13 +156,13 @@ export function ServicesContent() {
           />
 
           <div
+            className="services-content-grid"
             style={{
               marginTop: 52,
               display: 'grid',
               gap: 20,
               gridTemplateColumns: 'repeat(4, 1fr)',
             }}
-            className="sm:grid-cols-2 lg:grid-cols-4"
           >
             {services.map((s, i) => (
               <motion.div
@@ -149,6 +173,7 @@ export function ServicesContent() {
                 transition={{ duration: 0.45, ease, delay: i * 0.03 }}
               >
                 <div
+                  className="services-content-card"
                   style={{
                     background: '#FFFFFF',
                     border: '1px solid #E2E8F0',
