@@ -8,7 +8,7 @@ import {
 } from '@/components/seo/json-ld'
 
 const description =
-  'Explore NP Tech Solutions services in software development, automation, cloud systems, analytics, and ongoing technical support.'
+  'Explore RockChain Technologies services in software development, automation, cloud systems, analytics, and ongoing technical support.'
 
 const services = [
   {

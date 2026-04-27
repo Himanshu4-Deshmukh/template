@@ -188,7 +188,7 @@ export function AboutContent() {
               margin: 0,
             }}
           >
-            NP Tech Solutions helps organizations modernize operations with
+            RockChain Technologies helps organizations modernize operations with
             software, automation, and digital systems that are reliable,
             scalable, and easy to adopt.
           </motion.p>

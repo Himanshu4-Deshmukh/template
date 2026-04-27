@@ -150,7 +150,7 @@ export function HeroSection() {
               boxShadow: '0 1px 6px rgba(59,111,232,0.10)',
             }}
           >
-            NP Tech Solutions
+           RockChain Technologies
           </motion.span>
 
           {/* Heading */}

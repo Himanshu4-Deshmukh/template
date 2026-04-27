@@ -3,19 +3,19 @@
 import { Star, ShieldCheck, Users, TrendingUp, Award, Clock } from 'lucide-react'
 
 const topRow = [
-  { name: 'Marie D.',   role: 'Le Fournil Bakery',     quote: 'Since launching the new site, I receive three times more calls. Clients finally find us on Google.', stars: 5 },
-  { name: 'Thomas L.',  role: 'TLR Consulting',         quote: 'Careful work and a clear, professional website. Prospects immediately understand what I offer.',    stars: 5 },
-  { name: 'Camille B.', role: 'Atelier Camille',        quote: 'The site perfectly reflects my brand world. I have gained a lot of credibility with my clients.',   stars: 5 },
-  { name: 'Laurent M.', role: 'LM Renovation',          quote: 'In three months, my revenue increased by 40%. The website and SEO truly made the difference.',      stars: 5 },
-  { name: 'Nadia K.',   role: 'NovaTour Agency',        quote: 'Excellent support, deadlines met, and a result that exceeded my expectations.',                      stars: 5 },
+  // { name: 'Marie D.',   role: 'Le Fournil Bakery',     quote: 'Since launching the new site, I receive three times more calls. Clients finally find us on Google.', stars: 5 },
+  // { name: 'Thomas L.',  role: 'TLR Consulting',         quote: 'Careful work and a clear, professional website. Prospects immediately understand what I offer.',    stars: 5 },
+  // { name: 'Camille B.', role: 'Atelier Camille',        quote: 'The site perfectly reflects my brand world. I have gained a lot of credibility with my clients.',   stars: 5 },
+  // { name: 'Laurent M.', role: 'LM Renovation',          quote: 'In three months, my revenue increased by 40%. The website and SEO truly made the difference.',      stars: 5 },
+  // { name: 'Nadia K.',   role: 'NovaTour Agency',        quote: 'Excellent support, deadlines met, and a result that exceeded my expectations.',                      stars: 5 },
 ] as const
 
 const bottomRow = [
-  { name: 'Sophie R.',  role: 'Zen Pilates Studio',     quote: 'The team captured the atmosphere of my studio perfectly. Bookings really took off.',                stars: 5 },
-  { name: 'Pierre V.',  role: 'Valley Transport',        quote: 'An investment that paid for itself within weeks. Qualified leads arrive every day.',                 stars: 5 },
-  { name: 'Julie A.',   role: "Alice's Gardens",         quote: "They transformed our online presence. The site is beautiful and our sales tripled.",                 stars: 5 },
-  { name: 'Franck G.',  role: 'Studio FG',               quote: 'Clean design, smooth navigation, exactly what I wanted to showcase my projects.',                    stars: 4 },
-  { name: 'Emilie T.',  role: 'Parc Veterinary Clinic',  quote: 'Our clients can find everything easily. Appointment booking has changed our day-to-day work.',       stars: 5 },
+  // { name: 'Sophie R.',  role: 'Zen Pilates Studio',     quote: 'The team captured the atmosphere of my studio perfectly. Bookings really took off.',                stars: 5 },
+  // { name: 'Pierre V.',  role: 'Valley Transport',        quote: 'An investment that paid for itself within weeks. Qualified leads arrive every day.',                 stars: 5 },
+  // { name: 'Julie A.',   role: "Alice's Gardens",         quote: "They transformed our online presence. The site is beautiful and our sales tripled.",                 stars: 5 },
+  // { name: 'Franck G.',  role: 'Studio FG',               quote: 'Clean design, smooth navigation, exactly what I wanted to showcase my projects.',                    stars: 4 },
+  // { name: 'Emilie T.',  role: 'Parc Veterinary Clinic',  quote: 'Our clients can find everything easily. Appointment booking has changed our day-to-day work.',       stars: 5 },
 ] as const
 
 const metrics = [

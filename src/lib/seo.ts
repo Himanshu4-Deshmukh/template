@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'NP Tech Solutions',
+  name: 'RockChain Technologies',
   url: 'https://www.example.com',
   locale: 'en_US',
   description:

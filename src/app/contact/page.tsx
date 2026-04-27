@@ -4,7 +4,7 @@ import { ContactContent } from './contact-content'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 
 const description =
-  'Contact NP Tech Solutions to discuss software, automation, cloud, or digital transformation needs.'
+  'Contact RockChain Technologies to discuss software, automation, cloud, or digital transformation needs.'
 
 export const metadata: Metadata = {
   title: 'Contact',
