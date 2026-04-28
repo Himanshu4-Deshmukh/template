@@ -5,15 +5,15 @@ export const siteConfig = {
   description:
     'Smart software, cloud, and automation solutions that help businesses operate faster and scale with confidence.',
   ogImage: 'https://www.example.com/og.png',
-  twitterHandle: '@nptechsolutions',
+  twitterHandle: '@rockchaintech',
   themeColor: '#3B6FE8',
   phone: '8055223358',
-  email: 'nptechsolutions@gmail.com',
+  email: 'rockchaintechnologies@gmail.com',
   address: {
-    street: 'To be notified',
-    city: '',
-    postalCode: '',
-    country: '',
+    street: 'Nagpur',
+    city: 'Nagpur',
+    postalCode: '440010',
+    country: 'India',
   },
 } as const
 
