@@ -196,7 +196,7 @@ export function HeroSection() {
               textWrap: 'pretty',
             }}
           >
-            We design websites, business software, automation systems, and digital
+            We design Applications, Business softwares, Automation systems, and Digital
             infrastructure that streamline operations and unlock the next stage of growth.
           </motion.p>
 

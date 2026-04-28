@@ -261,7 +261,7 @@ export function TestimonialsSection() {
           fontWeight: 700, color: '#0f172a',
           margin: '0 0 0.65rem', lineHeight: 1.15,
         }}>
-          Trusted by 500+ businesses<br />
+          Trusted by 100+ businesses<br />
           <em style={{ fontStyle: 'italic', color: '#3B6FE8' }}>across every industry.</em>
         </h2>
 
