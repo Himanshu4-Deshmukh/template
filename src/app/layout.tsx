@@ -24,24 +24,30 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
   title: {
-    default: siteConfig.name,
+    default: `${siteConfig.name} | Software, Web & Mobile App Development`,
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: 'Technology',
   openGraph: {
     type: 'website',
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: siteConfig.name,
+    title: `${siteConfig.name} | Software, Web & Mobile App Development`,
     description: siteConfig.description,
     images: [{ url: siteConfig.ogImage }],
   },
   twitter: {
     card: 'summary_large_image',
     site: siteConfig.twitterHandle,
-    title: siteConfig.name,
+    title: `${siteConfig.name} | Software, Web & Mobile App Development`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -53,7 +59,7 @@ export const metadata: Metadata = {
     'max-video-preview': -1,
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: '/favicon.png',
     apple: '/apple-touch-icon.png',
   },
   alternates: {

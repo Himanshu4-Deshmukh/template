@@ -203,8 +203,7 @@ export function ServicesPreview() {
           className="services-preview-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
-            gap: '1.75rem',
+gridTemplateColumns: 'repeat(3, 1fr)',            gap: '1.75rem',
           }}
         >
           {services.map((s, i) => (
