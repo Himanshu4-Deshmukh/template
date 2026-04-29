@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'RockChain Technologies',
-  url: 'https://www.example.com',
+  url: 'https://rockchain.in/',
   locale: 'en_US',
   description:
     'RockChain Technologies builds custom software, websites, mobile apps, cloud systems, automation, and digital solutions for growing businesses.',
@@ -19,7 +19,7 @@ export const siteConfig = {
     'MVP development',
     'Nagpur technology company',
   ],
-  ogImage: 'https://www.example.com/og.png',
+  ogImage: 'https://rockchain.in/logo.png',
   twitterHandle: '@rockchaintech',
   themeColor: '#3B6FE8',
   phone: '8055223358',
