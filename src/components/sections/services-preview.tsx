@@ -1,7 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Cloud, Cpu, Database, ShieldCheck } from 'lucide-react'
+import {
+  ArrowRight,
+  Cloud,
+  Cpu,
+  Database,
+  PanelsTopLeft,
+  ShieldCheck,
+  ShoppingCart,
+} from 'lucide-react'
 
 const services = [
   {
@@ -27,6 +35,22 @@ const services = [
     accent: '#7C3AED',
     bg: '#F3EEFF',
     ring: '#D9C7F9',
+  },
+  {
+    icon: ShoppingCart,
+    title: 'E-commerce solutions',
+    desc: 'Elevate commerce with online stores, checkout flows, and integrations built to support growth.',
+    accent: '#4F46E5',
+    bg: '#EEF2FF',
+    ring: '#C7D2FE',
+  },
+  {
+    icon: PanelsTopLeft,
+    title: 'WordPress solutions',
+    desc: 'Empower your online presence with flexible WordPress websites and easy content management.',
+    accent: '#2563EB',
+    bg: '#EFF6FF',
+    ring: '#BFDBFE',
   },
   {
     icon: ShieldCheck,

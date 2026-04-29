@@ -7,8 +7,10 @@ import {
   Globe,
   Megaphone,
   Palette,
+  PanelsTopLeft,
   Search,
   ShieldCheck,
+  ShoppingCart,
   Smartphone,
 } from 'lucide-react'
 
@@ -30,6 +32,18 @@ const services = [
     title: 'Web applications',
     accent: '#14B8A6',
     desc: 'Dashboards, portals, booking platforms, and internal tools built to simplify complex operations.',
+  },
+  {
+    icon: ShoppingCart,
+    title: 'E-commerce solutions',
+    accent: '#7C3AED',
+    desc: 'Online stores, checkout experiences, and commerce integrations designed to elevate sales and empower growth.',
+  },
+  {
+    icon: PanelsTopLeft,
+    title: 'WordPress solutions',
+    accent: '#2563EB',
+    desc: 'Custom WordPress websites and content systems that strengthen your online presence and make publishing easier.',
   },
   {
     icon: Search,
