@@ -5,8 +5,13 @@ export function organizationJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: siteConfig.name,
+    legalName: siteConfig.name,
+    alternateName: ['RockChain', 'RockChain Tech'],
     url: siteConfig.url,
     logo: `${siteConfig.url}/favicon.svg`,
+    description: siteConfig.description,
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: siteConfig.phone,
@@ -22,10 +27,14 @@ export function localBusinessJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: siteConfig.name,
+    legalName: siteConfig.name,
+    alternateName: ['RockChain', 'RockChain Tech'],
     url: siteConfig.url,
     telephone: siteConfig.phone,
     email: siteConfig.email,
     image: siteConfig.ogImage,
+    description: siteConfig.description,
+    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address.street,
@@ -41,8 +50,14 @@ export function webSiteJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: siteConfig.name,
+    alternateName: ['RockChain', 'RockChain Technologies'],
     url: siteConfig.url,
     description: siteConfig.description,
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
   }
 }
 

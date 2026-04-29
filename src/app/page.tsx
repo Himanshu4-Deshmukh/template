@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 
 import { CtaSection } from '@/components/sections/cta-section'
+import { ExpertiseSection } from '@/components/sections/expertise-section'
 import { GalleryCarousel } from '@/components/sections/gallery-carousel'
 import { HeroSection } from '@/components/sections/hero-section'
+import { IndustriesSection } from '@/components/sections/industries-section'
 import { ServicesPreview } from '@/components/sections/services-preview'
 import { StorySection } from '@/components/sections/story-section'
 import { TestimonialsSection } from '@/components/sections/testimonials-section'
@@ -16,7 +18,18 @@ import {
 import { siteConfig } from '@/lib/seo'
 
 export const metadata: Metadata = {
+  title: 'RockChain Technologies | Software, Web & Mobile App Development',
+  description:
+    'RockChain Technologies builds custom software, websites, mobile apps, cloud systems, automation, e-commerce, WordPress, and MVP solutions for growing businesses.',
+  keywords: [...siteConfig.keywords],
   alternates: { canonical: '/' },
+  openGraph: {
+    title: 'RockChain Technologies | Software, Web & Mobile App Development',
+    description:
+      'Custom software, web, mobile app, cloud, automation, e-commerce, WordPress, and MVP development services by RockChain Technologies.',
+    url: '/',
+    siteName: siteConfig.name,
+  },
 }
 
 const jsonLd = {
@@ -38,6 +51,8 @@ export default function HomePage() {
       />
       <HeroSection />
       <ServicesPreview />
+      <ExpertiseSection />
+      <IndustriesSection />
       <StorySection />
       <TestimonialsSection />
       <GalleryCarousel />
