@@ -8,7 +8,7 @@ export function organizationJsonLd() {
     legalName: siteConfig.name,
     alternateName: ['RockChain', 'RockChain Tech'],
     url: siteConfig.url,
-    logo: `${siteConfig.url}/favicon.svg`,
+    logo: `${siteConfig.url}/favicon.png`,
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,

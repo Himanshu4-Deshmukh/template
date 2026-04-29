@@ -205,7 +205,7 @@ export function ExpertiseSection() {
           style={{
             marginTop: 'clamp(3.5rem, 6vw, 5rem)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
+            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
             rowGap: '4.75rem',
             columnGap: 'clamp(1.5rem, 4vw, 4rem)',
           }}

@@ -31,7 +31,6 @@ const industries = [
   { icon: Truck, label: 'Logistics & Procurement' },
   { icon: Laptop, label: 'SaaS' },
   { icon: Rocket, label: 'Startup' },
-  { icon: ShoppingBag, label: 'Retail store' },
   { icon: Clapperboard, label: 'Media & Entertainment' },
   { icon: Gamepad2, label: 'Gaming' },
 ] as const
@@ -87,7 +86,7 @@ export function IndustriesSection() {
           style={{
             marginTop: 'clamp(2.75rem, 5vw, 4rem)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
+            gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
             gap: '3.75rem clamp(1.5rem, 4vw, 4rem)',
           }}
         >

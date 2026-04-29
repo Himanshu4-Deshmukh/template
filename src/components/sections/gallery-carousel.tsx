@@ -239,8 +239,7 @@ export function GalleryCarousel() {
           className="gallery-carousel-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
-            gap: '1.25rem',
+gridTemplateColumns: 'repeat(3, 1fr)',            gap: '1.25rem',
           }}
         >
           {capabilities.map((cap, i) => {
@@ -376,15 +375,7 @@ export function GalleryCarousel() {
                     transition: 'gap 0.2s ease',
                   }}
                 >
-                  Learn more
-                  <ArrowRight
-                    size={14}
-                    strokeWidth={2.5}
-                    style={{
-                      transform: isHovered ? 'translateX(3px)' : 'translateX(0)',
-                      transition: 'transform 0.2s ease',
-                    }}
-                  />
+                 
                 </div>
               </motion.div>
             )

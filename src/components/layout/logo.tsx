@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import LogoImage from '@/assets/NPTech-Logo.png'
 import { siteConfig } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 
@@ -18,13 +17,12 @@ export function Logo({ className }: LogoProps) {
       )}
     >
       <img
-        src={LogoImage.src}
+        src="/logo.png"
         alt={`${siteConfig.name} logo`}
-        width={LogoImage.width}
-        height={LogoImage.height}
-        className="h-9 w-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+        width={180}
+        height={48}
+        className="h-12 w-auto  object-contain transition-transform duration-300 group-hover:scale-[1.03]"
       />
-      <span>{siteConfig.name}</span>
     </Link>
   )
 }
